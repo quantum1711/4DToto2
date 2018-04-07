@@ -40,7 +40,7 @@ def iterateNumbers(readfile, writefile, column):
     g.close()
 
 ######################################################################################
-###
+#######
 
 def mergeResults(readfile1, readfile2, mergefile):
     fname = readfile1
