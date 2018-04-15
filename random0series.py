@@ -4,8 +4,8 @@ import random
 # THIS SCRIPT GIVES A RANDOM NUMBER FOR THE 0 SERIES
 
 
-def randomseries(filename, rangeStart, rangeEnd, seriesText):
-    fname = "FINALRESULT/" + str(filename)
+def randomseries(foldername ,filename, rangeStart, rangeEnd):
+    fname = foldername + "/" + str(filename)
 
     # for line in enumerate(f):
     zerolist = list()
@@ -19,26 +19,90 @@ def randomseries(filename, rangeStart, rangeEnd, seriesText):
 
     validlist = list(set(numbers) - set(zerolist))
 
-    print('\nrandom number for ' + str(seriesText) + ' series is : ' + str(random.choice(validlist)))
+    #print('\nrandom number for ' + str(seriesText) + ' series is : ' + str(random.choice(validlist)))
 
     file.close()
+    return validlist
 
 ######################################################################################
+
+
+def printlist(list, seriesText):
+    print('\nrandom number for ' + str(seriesText) + ' series is : ' + str(random.choice(list)))
+
+
+def getfulllistprize(foldername):
+    list0 = randomseries(foldername, '0series.txt', 0, 1000)
+
+    list1 = randomseries(foldername, '1series.txt', 1000, 2000)
+
+    list2 = randomseries(foldername, '2series.txt', 2000, 3000)
+
+    list3 = randomseries(foldername, '3series.txt', 3000, 4000)
+
+    list4 = randomseries(foldername, '4series.txt', 4000, 5000)
+
+    list5 = randomseries(foldername, '5series.txt', 5000, 6000)
+
+    list6 = randomseries(foldername, '6series.txt', 6000, 7000)
+
+    list7 = randomseries(foldername, '7series.txt', 7000, 8000)
+
+    list8 = randomseries(foldername, '8series.txt', 8000, 9000)
+
+    list9 = randomseries(foldername, '9series.txt', 9000, 10000)
+
+    fulllist = list0 + list1 + list2 + list3 + list4 + list5 + list6 + list7 + list8 + list9
+    return fulllist
+
+
+def printresults(foldername, prize):
+    print("\n" + prize + " Prize--------------------------------------------------------")
+
+    list0 = randomseries(foldername, '0series.txt', 0, 1000)
+    printlist(list0, 0)
+
+    list1 = randomseries(foldername, '1series.txt', 1000, 2000)
+    printlist(list1, 1)
+
+    list2 = randomseries(foldername, '2series.txt', 2000, 3000)
+    printlist(list2, 2)
+
+    list3 = randomseries(foldername, '3series.txt', 3000, 4000)
+    printlist(list3, 3)
+
+    list4 = randomseries(foldername, '4series.txt', 4000, 5000)
+    printlist(list4, 4)
+
+    list5 = randomseries(foldername, '5series.txt', 5000, 6000)
+    printlist(list5, 5)
+
+    list6 = randomseries(foldername, '6series.txt', 6000, 7000)
+    printlist(list6, 6)
+
+    list7 = randomseries(foldername, '7series.txt', 7000, 8000)
+    printlist(list7, 7)
+
+    list8 = randomseries(foldername, '8series.txt', 8000, 9000)
+    printlist(list8, 8)
+
+    list9 = randomseries(foldername, '9series.txt', 9000, 10000)
+    printlist(list9, 9)
 
 
 def main():
     start = time.time()
 
-    randomseries('0series.txt', 0, 999, 0)
-    randomseries('1series.txt', 1000, 1999, 1)
-    randomseries('2series.txt', 2000, 2999, 2)
-    randomseries('3series.txt', 3000, 3999, 3)
-    randomseries('4series.txt', 4000, 4999, 4)
-    randomseries('5series.txt', 5000, 5999, 5)
-    randomseries('6series.txt', 6000, 6999, 6)
-    randomseries('7series.txt', 7000, 7999, 7)
-    randomseries('8series.txt', 8000, 8999, 8)
-    randomseries('9series.txt', 9000, 9999, 9)
+    foldername = '1STPRIZE'
+    printresults(foldername, '1st')
+
+    foldername = '2NDPRIZE'
+    printresults(foldername, '2nd')
+
+    foldername = '3RDPRIZE'
+    printresults(foldername, '3rd')
+
+    print("\n-----------------------------------------------------------------")
 
     end = time.time()
     print('\n' + str(end - start) + ' seconds\n')
